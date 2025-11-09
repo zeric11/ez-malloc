@@ -36,7 +36,7 @@ BlockMeta* get_block_ptr(void* ptr) {
 
 /**
  * Takes as input he number of bytes and returns a pointer to a block of memory of that size.
- * Uses the sbrk system call which is only available in Unix-based systems.
+ * 
  * 
  *  + -------------------- +
  *  |   ||  Stack          |

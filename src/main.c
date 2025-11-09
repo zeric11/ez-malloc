@@ -43,6 +43,7 @@ int main() {
 
     ez_free(array);
     assert(get_block_ptr(array)->is_free == 1);
+    array = NULL;
 
     return 0;
 }

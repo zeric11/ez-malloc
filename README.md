@@ -8,15 +8,20 @@ On MacOS, a warning that `sbrk` is deprecated may appear, but it should still wo
 
 ## Usage
 
+Create `build` folder if it does not exist:
+```sh
+$ mkdir build
+```
+
 Build and run executable with `make`:
 ```sh
 $ make
-$ ./ez_malloc_test
+$ ./build/ez_malloc_test
 ```
 
 Using `valgrind` to test for memory leaks (**LINUX ONLY**):
 ```sh
-$ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./ez_malloc_test
+$ valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./build/ez_malloc_test
 ```
 
 Clean executable:

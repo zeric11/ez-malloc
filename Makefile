@@ -1,8 +1,15 @@
 CC = gcc
-CFLAGS = -O3 -Wall -g
+CFLAGS = -O3 -Wall
 
-ez_malloc_test:
-	$(CC) $(CFLAGS) src/*.c -o ez_malloc_test
+SRCS = $(wildcard src/*.c)
+OBJS = $(patsubst src/%.c,build/%.o,$(SRCS))
+PROGRAM_NAME = ez_malloc_test
+
+$(PROGRAM_NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o build/$(PROGRAM_NAME)
+
+build/%.o: src/%.c # Compile but do not link source files
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f ez_malloc_test
+	rm -f build/*
